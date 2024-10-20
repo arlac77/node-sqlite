@@ -10,7 +10,7 @@
     "import": "./build/index.mjs"
   },
   "scripts": {
-    "build": "npm run build:clean && npm run compile && cp -R src/index.mjs src/vendor-typings build",
+    "build": "node --run build:clean && node --run compile && cp -R src/index.mjs src/vendor-typings build",
     "build:docs": "typedoc --options typedoc.js --plugin typedoc-plugin-markdown src/ --out docs",
     "build:clean": "rm -rf build/*",
     "compile": "tsc",
@@ -23,7 +23,7 @@
     "test:coverage:watch": "jest --coverage --watch",
     "toc": "toc-md README.md README.md",
     "lint-staged": "lint-staged",
-    "prepare-publish": "npm run changelog:prepare && version-bump && npm run changelog:release && npm run changelog:stamp",
+    "prepare-publish": "node --run changelog:prepare && version-bump && node --run changelog:release && node --run changelog:stamp",
     "add-readme": "git add README.md",
     "version-bump": "version-bump",
     "changelog:help": "changelog-version",
