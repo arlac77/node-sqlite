@@ -10,7 +10,7 @@
     "import": "./build/index.mjs"
   },
   "scripts": {
-    "build": "npm run build:clean && npm run compile && cp -R src/index.mjs src/vendor-typings build",
+    "build": "node --run build:clean && node --run compile && cp -R src/index.mjs src/vendor-typings build",
     "build:docs": "typedoc --options typedoc.js --plugin typedoc-plugin-markdown src/ --out docs",
     "build:clean": "rm -rf build/*",
     "compile": "tsc",
@@ -23,7 +23,7 @@
     "test:coverage:watch": "jest --coverage --watch",
     "toc": "toc-md README.md README.md",
     "lint-staged": "lint-staged",
-    "prepare-publish": "npm run changelog:prepare && version-bump && npm run changelog:release && npm run changelog:stamp",
+    "prepare-publish": "node --run changelog:prepare && version-bump && node --run changelog:release && node --run changelog:stamp",
     "add-readme": "git add README.md",
     "version-bump": "version-bump",
     "changelog:help": "changelog-version",
@@ -74,7 +74,7 @@
     "@theo.gravity/changelog-version": "2.1.10",
     "@theo.gravity/version-bump": "2.0.9",
     "@types/jest": "25.2.1",
-    "@types/node": "^22.7.7",
+    "@types/node": "^22.7.8",
     "@types/sqlite3": "^3.1.6",
     "@typescript-eslint/eslint-plugin": "^2.26.0",
     "@typescript-eslint/parser": "^2.26.0",
